@@ -1,5 +1,9 @@
 package edu.baylor.ecs;
 
+import edu.baylor.ecs.service.FileService;
+import edu.baylor.ecs.service.TokenService;
+import edu.baylor.ecs.service.TokenServiceImpl;
+import edu.baylor.ecs.service.TreeService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -18,4 +22,8 @@ public class TokenizerApplication {
         return new RestTemplate();
     }
 
+    @Bean
+    public TokenService tokenService(FileService fileService, TreeService treeService){
+        return new TokenServiceImpl(fileService, treeService);
+    }
 }

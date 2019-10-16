@@ -1,5 +1,7 @@
 package edu.baylor.ecs.models;
 
+import org.antlr.v4.runtime.Token;
+
 public class BCEToken {
 
     private String tokenValue;
@@ -7,6 +9,11 @@ public class BCEToken {
 
     private BCEToken() {
         // Private for serialization
+    }
+
+    public BCEToken(String tokenValue, Token token) {
+        this.tokenValue = tokenValue;
+        this.node = String.valueOf(token.getType());
     }
 
     public BCEToken(String tokenValue, String node) {
