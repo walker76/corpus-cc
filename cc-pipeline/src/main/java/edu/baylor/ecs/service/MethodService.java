@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class MethodService {
 
-        private MethodRepository methodRepository;
+        private final MethodRepository methodRepository;
 
         public MethodService(MethodRepository methodRepository) {
             this.methodRepository = methodRepository;
